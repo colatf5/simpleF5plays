@@ -2,18 +2,15 @@
 - name: Create a node
   hosts: 10.128.1.152
   connection: local
-  vars:
-    user: admin
-    password: admin
 
   tasks:
-          - name: delete a node - 'name' is the name of the node
+          - name: delete a node - 'name' is the name of the node, must be supplied either in a inventory file or command line
             bigip_node:
                     server: "{{ inventory_hostname }}"
                     user: "{{ user }}"
-                    password: admin
+                    password: "{{ password }}"
                     validate_certs: no
                     state: absent
-                    name: "server2"
+                    name: "{{ nodeip }}"
             delegate_to: localhost
 
