@@ -1,6 +1,6 @@
 ---
 - name: Create a node
-  hosts: 10.128.1.152
+  hosts: "{{ host }}"
   connection: local
 
   tasks:
